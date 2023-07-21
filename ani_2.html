@@ -10,7 +10,7 @@
         }
         main .a {
             background: lightblue;
-            animation: deg50 1s;
+            animation: x500 5s;
         }
         main .b {
             background: lightcoral;
@@ -18,27 +18,30 @@
         }
         main .c {
             background: lightgoldenrodyellow;
-            animation: font_s 3s;
+            animation: deg50 3s;
         }
         main .d {
-            animation: c_f 3s;
+            animation: ball ease-out 5s;
             background: lightgreen;
+            border-radius: 50%;
         }
 
         /* keyframes */
         @keyframes x500/* or left500 */{
             0% {transform:translateX(0)}
-            100%{transform: translateX(500px);}
+            50% {transform:translateX(500px)}
+            100%{transform: translateX(0);}
         }
         /* y축으로 200->0만큼 이동하는 애니메이션 */
         @keyframes y200{
-            0% {transform: translateY(200px);}
+            0% {transform: translateY(0);}
+            50% {transform: translateY(200px);}
             100% {transform: translateY(0);}
         }
         /* 50도-150도로 회전하는 애니메이션 */
         @keyframes deg50 {
-            0% {transform:rotate(50deg) ;}
-            100% {transform:rotate(150deg) ;}
+            0% {transform:scale(3) rotate(0deg)  ;}
+            100% {transform:scale(1) rotate(150deg)  ;}
         }
         /* 배경색 흰색 -> 노란색으로 변경되는 애니메이션 */
         @keyframes color_r {
@@ -54,6 +57,18 @@
         @keyframes c_f {
             0% {background:yellow; color:black;}
             100% {background:red; color:white;}
+        }
+        /* 배경색 노랑 > 파랑 > 빨강 애니메이션 */
+        @keyframes back_c {
+            0%{background:yellow;}
+            50%{background:blue;}
+            100%{background:red;}
+        }
+
+        @keyframes ball {
+            0% {transform: translateX(0) rotate(0);}
+            50% {transform:translateX(500px) rotate(180deg) ;}
+            100% {transform:translateX(0) rotate(0) ;}
         }
         /* 1. 원하는 애니메이션의 keyframes 이름 지정하기
             y축으로 200만큼 움직이고 싶다 >> y200
