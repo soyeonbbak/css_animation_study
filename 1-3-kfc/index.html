@@ -38,7 +38,10 @@
         #dynamic #btn {display:flex; position:absolute; right:0; bottom:100px;}
         #dynamic #btn a {margin:0 5px;}
         #dynamic #btn a#prev {}
-        #dynamic #btn a#next {}
+        #dynamic #btn a#next {
+            transform: scaleX(-1);
+            /* 좌우반전 */
+        }
     </style>
     <script>
         window.onload=function(){

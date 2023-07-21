@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션2</title>
+    <style>
+        main .box {
+            width: 100px; height: 100px;
+        }
+        main .a {
+            background: lightblue;
+            animation: deg50 1s;
+        }
+        main .b {
+            background: lightcoral;
+            animation: color_r 3s;
+        }
+        main .c {
+            background: lightgoldenrodyellow;
+            animation: font_s 3s;
+        }
+        main .d {
+            animation: c_f 3s;
+            background: lightgreen;
+        }
+
+        /* keyframes */
+        @keyframes x500/* or left500 */{
+            0% {transform:translateX(0)}
+            100%{transform: translateX(500px);}
+        }
+        /* y축으로 200->0만큼 이동하는 애니메이션 */
+        @keyframes y200{
+            0% {transform: translateY(200px);}
+            100% {transform: translateY(0);}
+        }
+        /* 50도-150도로 회전하는 애니메이션 */
+        @keyframes deg50 {
+            0% {transform:rotate(50deg) ;}
+            100% {transform:rotate(150deg) ;}
+        }
+        /* 배경색 흰색 -> 노란색으로 변경되는 애니메이션 */
+        @keyframes color_r {
+            0% {background: white;}
+            100% {background: yellow;}
+        }
+        /* 글자크기 1rem ->3rem 변경되는 애니메이션 */
+        @keyframes font_s {
+            0% {font-size:1rem;}
+            100% {font-size:3rem;}
+        }
+        /* 배경색 노랑>빨강, 글자색 검정>흰색 변경되는 애니메이션 */
+        @keyframes c_f {
+            0% {background:yellow; color:black;}
+            100% {background:red; color:white;}
+        }
+        /* 1. 원하는 애니메이션의 keyframes 이름 지정하기
+            y축으로 200만큼 움직이고 싶다 >> y200
+            투명도 1에서 0.5만큼 주고싶다 >> alpha1
+            가로크기를 500만큼 키우고싶다 >> w500
+            ex ) @keyframes 이름(alpha1) {}
+        2. 애니메이션의 시작과 끝을 구분해서 속성으로 작성한다.
+            y축으로 200만큼 움직이고 싶다일 경우
+                0% {transform:translateY(0)}
+                100%{transform:translateY(200px)}
+            가로크기를 500만큼 키우고 싶다 경우
+            0% {width:원본크기값;}
+                100%{width:500px;}
+            ex) 적용예 (아래)
+            @keyframes 이름 {
+                0% {width:원본크기값;}
+                100% {width:500px;}
+                */
+            
+        /* keyframes 먼저 만들고 값을 넣고 싶은 선택자 안에 
+        animation을 입력하고 닉네임(ex.x500) 시간을 값으로 입력하기 */
+    </style>
+</head>
+<body>
+    <main>
+        <div class="box a">a</div>
+        <div class="box b">b</div>
+        <div class="box c">c</div>
+        <div class="box d">d</div>
+    </main>
+</body>
+</html>
+
+rotate(deg)
+scale(1,2,3)
+skew(deg)
+translate(px,%,em)
