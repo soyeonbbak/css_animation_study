@@ -16,11 +16,23 @@
             background:#fff; border-radius:50px; text-align:center; padding:20px 0;
             display:inline-block; margin-top:50px; font-weight:600;
             width:200px; color:#000;
+            transition:all 0.5s;
+            transform-origin: left;
+        }
+        main .txt #order:hover {
+            width: 250px;
+            box-shadow: 0 0 20px;
+            color: #da1e27;
+            /* transform: scaleX(1.5); */
         }
         #sns {position:absolute; left:0; bottom:100px;}
+        #sns a:hover {
+            transform: translateY(-25px);
+        }
         #sns a {
             display:inline-block; width:40px; margin:0 10px;
             position:relative; top:0;
+            transition: transform 0.5s;
         }
         #sns a img {width:100%;}
         #dynamic #btn {display:flex; position:absolute; right:0; bottom:100px;}
