@@ -5,8 +5,101 @@
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>애니메이션1</title>
+    <style>
+        /* transition:애니메이션적용속성 지속시간; */
+        #btn1 {
+            background: aqua;
+            width: 100px; height: 50px; border-radius: 10%;
+            border: 5px dashed #000; padding: 20px;
+            /* 지속시간이 각 속성마다 다를 경우 (,넣어서 구분) */
+            /* transition:background 2s, width 0.8s;  */
+            /* 지속시간이 모든 속성에 일치할 때 (all 지속시간 입력) */
+            /* transition: all 0.5s; */
+            transition:all 3s ;
+            position: relative; left: 0;
+        }
+        /* 같은 선택자에서 속성을 똑같은 이름을 두 번 이상쓰면 밑에있는 속성만 적용. */
+        #btn1:hover {
+            background: red;
+            width: 150px; height: 200px; left: 0;
+            border-radius: 50%;
+            left: 100px; border: 10px solid #fff;
+        }
+        #btn2 {
+            width: 100px;
+            height: 200px;
+            border: 10px solid red;
+            position: relative; left: 30%;
+            border-radius:10px ;
+            background:linear-gradient(white, black);
+            /* transition:width 3s ease 0.5s, height 2s linear 1s; */
+            transition:all 3s 0.1s;
+            /* 뒤에는 딜레이값으로 정해짐. */
+            /* 시간을 하나만 쓰면 진행시간을 의미하고 두개를 쓰면 지속시간 / 시작딜레이시간으로 나눠진다. */
+            /* 0.5초 후에 3초동안 애니메이션이 진행한다. */
+        }
+        #btn2:hover {
+            width: 200px; height: 50px;
+            left: 10%; border: 5px dashed #222; border-radius: 30px;
+            background: linear-gradient(red, blue);
+        }
+        /* transform 연습 */
+        #btn3 { 
+            padding: 10px;
+        }
+        /*ex) btn3에 마우스를 올렸을 때 그 형제 box가 변경된다. */
+        #btn3:hover~.box { 
+            /* btn3의 ~(형제들 중).box의 형태를 변경시켜라. */
+            /* width: 200px; height: 200px; */
+            /* transform:속성(값) 속성(값) */
+            /* transform: scaleX(4) scaleY(1.5); */
+            /* transform 속성은 자식,자손에게도 영향을 준다.
+            ex)scale로 X,Y값의 길이를 넓히면 안에 text나 이미지 등 같이 커진다. */
+            transition: all 3s;
+            background-color: lightblue;
+            /* transform: rotate(-360deg) scale(1.5); */
+            /* transform: skewX(70deg); */
+            transform: translateX(500px);
+        }
+        .box{
+            width: 100px; height: 100px;
+            background-color: lightcoral;
+            transition: transform 3s;
+        }
+        /* btn4에 마우스를 올렸을 때 target이 바뀌게 만들기. */
+        #btn4 {margin-bottom: 50px;}
+        #btn4:hover~.target {
+            transform: rotate(360deg);
+            transform-origin: right bottom;
+        }
+        .target {
+            display: block;
+            width: 100px; height: 100px;
+            background: lightgreen;
+            transition: transform 3s;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
-    
+    <ul>
+        <li>
+            <button id="btn1">animation1</button>
+        </li>
+        <li>
+            <button type="button" id="btn2">animation2</button>
+        </li>
+        <li>
+            <button id="btn3" type="button">transform1</button>
+            <hr>
+            <div class="box">box</div>
+        </li>
+        <li>
+            <button id="btn4" type="button">transform2</button>
+            <hr>
+            <span class="target">적용대상</span>
+        </li>
+        <li></li>
+    </ul>
 </body>
 </html>
