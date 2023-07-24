@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation-3</title>
+    <style>
+        main {
+            display: flex; flex-flow:column nowrap;
+        }
+        main #btn {
+            cursor:pointer; 
+        }
+        /* 1. 버튼에 마우스 올렸을 때 target1 배경색 변경 */
+        main #btn:hover + .target1 {
+            background: aqua; width: 200px; height: 50px;
+        }
+        main span {
+            width: 100px; height: 100px;
+            background: lightcoral; padding: 10px;}
+        main .target1 {transition: all 1s 0.5s;}
+        main .target2 {
+            animation: right500 2s linear 4 alternate-reverse; 
+        }
+        main .target3 {}
+        main .target4 {}
+        main .target5 {}
+        /* animation + @keyframes */
+        @keyframes right500 {
+            0% {transform:translateX(0)}
+            100% {transform: translateX(500px);}
+        }
+        /* keyframes 작성 위치 style맨 아래 또는 외부스타일 분리 */
+        /* 1. 원하는 애미네이션 시작-끝 장면 정하기 */
+        /* 2. 해당 장면 이름으로 keyframes 생성 */
+        /* 3. 적용 대상에 animation속성으로 keyframes 불러오기 */
+        </style>
+</head>
+<body>
+    <main>
+        <button id="btn">적용버튼</button>
+        <span class="target1">1</span>
+        <span class="target2">2</span>
+        <span class="target3">3</span>
+        <span class="target4">4</span>
+        <span class="target5">5</span>
+    </main>
+</body>
+</html>
