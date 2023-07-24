@@ -22,9 +22,9 @@
         main .target2 {
             animation: right500 2s linear 4 alternate-reverse; 
         }
-        main .target3 {}
+        main .target3 {animation: left_top_right 3s alternate infinite;}
         main .target4 {}
-        main .target5 {}
+        main .target5 {animation: opacity 3s infinite;}
         /* animation + @keyframes */
         @keyframes right500 {
             0% {transform:translateX(0)}
@@ -34,6 +34,16 @@
         /* 1. 원하는 애미네이션 시작-끝 장면 정하기 */
         /* 2. 해당 장면 이름으로 keyframes 생성 */
         /* 3. 적용 대상에 animation속성으로 keyframes 불러오기 */
+        @keyframes left_top_right {
+            0% {transform: translate(0, 0);
+            background: pink; width: 50px; height: 100px;}
+            50% {transform: translate(250px, -100px); background: yellowgreen; width: 100px;}
+            100% {transform: translate(500px,0); background: lightblue; width: 200px; height: 200px;}
+        }
+        @keyframes opacity {
+            0% {opacity: 0; font-size: 1rem;}
+            100% {opacity: 1; font-size: 3rem;}
+        }
         </style>
 </head>
 <body>

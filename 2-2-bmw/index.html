@@ -21,18 +21,35 @@
             border-bottom:1px solid rgba(255,255,255,0.2);
             width:80%; margin:0 auto; display:flex; justify-content:space-around;
         }
-        header nav a {padding:10px 0; position:relative;}
+        header nav a {
+            /* transform: ; */
+            padding:10px 0; position:relative; color: white;
+            
+        }
         header nav a::after {
             content:''; display:block;
+            transform: scaleX(0);
             width:100%; height:1px; background:#cae4ff;
             position:absolute; bottom:-1px;
+            transition: transform 0.5s ease; 
         }
-
+        header nav a:hover::after{
+            transform:scaleX(1) ;
+            
+        }
         main {position:relative; width:1400px; height:80vh; margin:0 auto;}
         main img {
+            animation: opa 2s linear;
             position:absolute; left:0; bottom:100px;
         }
-
+        @keyframes opa {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+        @keyframes border {
+            0% {border: 0; opacity: 0;}
+            100% {border: 100%; opacity: 1;}
+        }
     </style>
     <script>
         window.onload=function(){
